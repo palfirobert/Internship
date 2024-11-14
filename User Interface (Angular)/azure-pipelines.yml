@@ -1,0 +1,34 @@
+# Node.js
+# Build a general Node.js project with npm.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
+trigger:
+  - merge
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+  - task: Bash@3
+    displayName: "Docker image build"
+    inputs:
+      workingDirectory: ./AngularUserInterface
+      targetType: "inline"
+      script: |
+        docker build -t angular-user-interface .
+
+  - script: |
+      docker login -u AngularUserManagementARD500Registry -p QjcYo7nRNWoTtVy5pzIfxoaPS/ea4KBTUZX2mTLg5f+ACRBgAdPX angularusermanagementard500registry.azurecr.io
+    displayName: Login to Azure Registry
+
+  - script: |
+      docker tag angular-user-interface angularusermanagementard500registry.azurecr.io/angular-user-interface
+    displayName: Tag the image
+
+  - script: |
+      docker push angularusermanagementard500registry.azurecr.io/angular-user-interface
+    displayName: Push to Azure
+
+
+
+

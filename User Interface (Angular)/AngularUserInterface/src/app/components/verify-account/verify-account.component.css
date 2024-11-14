@@ -1,0 +1,44 @@
+.verify-account-container {
+  display: inline-grid;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  max-width: 100%;
+}
+
+.image-container {
+  width: 100%; /* Make the image container full width */
+  display: flex;
+  justify-content: flex-start;
+}
+
+
+.verify-account-card {
+  display: flex;
+  width: 610px;
+  max-width: 90%;
+  padding: 25px;
+}
+
+.bosch-logo-image {
+  width: 150px; /* Set the width of the image (adjust as needed) */
+  height: 36px; /* Set the height of the image (adjust as needed) */
+}
+
+.bosch-colors-image {
+  height: 15px;
+  width: 100%;
+}
+
+.verify-account-text{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 30px;
+  font-family: "72","72full",Arial,Helvetica,sans-serif;
+  font-size: 25px;
+  /*color: rgb(0,123, 192);*/
+
+}
+

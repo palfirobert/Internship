@@ -1,0 +1,75 @@
+.bosch-logo-image {
+  width: 150px; /* Set the width of the image (adjust as needed) */
+  height: 36px; /* Set the height of the image (adjust as needed) */
+  position: absolute;
+}
+
+.header_image_bosch {
+  margin-top: 0.4%;
+  justify-content: flex-end;
+  margin-left: 9.9%;
+  width: 30%;
+}
+
+.header_text {
+  margin-top: 1.7%;
+  margin-left: 3%;
+  font-size: 30px;
+  flex-direction: column;
+  align-items: start;
+  width: 10%;
+}
+
+
+.header {
+  width: 100%;
+  height: 10%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.header_tabs {
+  width: 30%;
+  position: relative;
+  margin-top: 0.5%;
+}
+
+.type_dropdown {
+  justify-content: flex-end;
+  margin-left: 10%;
+  margin-top: 3vh;
+  width: 40%;
+}
+
+.type_dropdown_batteries {
+  justify-content: flex-end;
+  margin-left: 3%;
+  margin-top: 3vh;
+  width: 60%;
+}
+
+.dropdown_label {
+  font-weight: bold;
+}
+
+.header_custom_button {
+  margin-left: 3%;
+  font-size: 20px;
+  width: 50%;
+}
+
+.logout-button {
+  margin-top: 2%;
+  justify-content: flex-end;
+}
+
+.dropdown_items {
+  width: auto;
+  position: relative;
+  margin-left: 1%;
+}
+
+.header_profile_button {
+  margin-top: 0.6%;
+}

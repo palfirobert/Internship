@@ -1,0 +1,67 @@
+<mat-toolbar class="header" role="toolbar">
+
+  <mat-toolbar-row class="header_text">
+    <span class="app_name">ARD 500</span>
+  </mat-toolbar-row>
+  <mat-toolbar-row class="header_profile_button">
+    <button mat-icon-button color="primary-darker" class="profile-button" matTooltip="Profile" (click)="profile()">
+      <mat-icon>account_circle</mat-icon>
+    </button>
+  </mat-toolbar-row>
+  <mat-toolbar-row class="header_tabs">
+    <mat-tab-group #tabRef (selectedTabChange)="sendTabChangeEventToParrent($event)">
+      <mat-tab [disabled]="disableTabs" class="button_header"
+               [label]="tabsNames.SOHC_MIN_CELL_EVOLUTION_AGAINST_TIME"></mat-tab>
+      <mat-tab [disabled]="disableTabs" class="button_header"
+               [label]="tabsNames.SOHC_3_WORST_CELL_INDEX_AGAINST_TIME"></mat-tab>
+      <mat-tab [disabled]="disableTabs" class="button_header"
+               [label]="tabsNames.SOHC_3_WORST_SOHCS_AGAINST_TIME"></mat-tab>
+      <mat-tab [disabled]="disableTabs" class="button_header" [label]="tabsNames.SOHC_EQ_PARAMS_AGAINST_TIME"></mat-tab>
+      <mat-tab [disabled]="disableTabs" class="button_header"
+               [label]="tabsNames.CHARGE_PROFILE_FAST_CURRENT_AGAINST_SOC_FOR_EACH_TEMPERATURE"></mat-tab>
+      <mat-tab [disabled]="disableTabs" class="button_header"
+               [label]="tabsNames.CHARGE_PROFILE_PROTECTED_CURRENT_AGAINST_SOC_FOR_EACH_TEMPERATURE"></mat-tab>
+    </mat-tab-group>
+  </mat-toolbar-row>
+
+  <mat-toolbar-row class="dropdown_items">
+    <mat-form-field class="type_dropdown">
+      <mat-label class="dropdown_label">Tenant ID</mat-label>
+      <mat-select [disabled]="disableTenantsDropdown" [(ngModel)]="selectedTenant"
+                  (ngModelChange)="onSelectedTenant(selectedTenant)">
+        <mat-option *ngFor="let entity of tenants" [value]="entity">
+          {{ entity }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="type_dropdown_batteries">
+      <mat-label class="dropdown_label">Battery ID</mat-label>
+      <mat-select multiple [disabled]="disableBatteriesDropdown" [(ngModel)]="selectedBatteries"
+                  (ngModelChange)="onSelectedBatteries(selectedBatteries)">
+        <mat-option style="width: max-content !important" *ngFor="let entity of batteries" [value]="entity">
+          {{ entity }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+
+    <button mat-raised-button color="primary" class="header_custom_button" (click)="getDataForRequest()"
+            [disabled]="disableGenerateButton">
+      Generate plots
+    </button>
+
+  </mat-toolbar-row>
+  <mat-toolbar-row class="header_image_bosch">
+    <img alt="Image" class="bosch-logo-image" src="assets/boschLogo.png">
+  </mat-toolbar-row>
+
+
+  <mat-toolbar-row>
+    <button mat-icon-button color="primary-darker" class="logout-button" matTooltip="Logout" (click)="logout()">
+      <mat-icon>logout</mat-icon>
+    </button>
+  </mat-toolbar-row>
+
+
+</mat-toolbar>

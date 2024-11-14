@@ -1,0 +1,7 @@
+ALTER TABLE battery_users
+	ADD role VARCHAR;
+
+INSERT INTO users_tenants VALUES (1, '1aa9d5e8-a182-414b-be97-1791fd89fc27');
+
+ALTER TABLE users_tenants RENAME COLUMN user_id TO battery_user_id;
+

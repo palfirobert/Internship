@@ -1,0 +1,74 @@
+<div class="create-account-container">
+  <mat-card class="create-account-card">
+
+    <div fxLayout="row" fxLayoutAlign="start start">
+
+      <img alt="Image" class="bosch-logo-image" src="assets/boschLogo.png">
+    </div>
+
+    <mat-card-header class="create-account-text">
+      <mat-card-title>
+        <button (click)="cancelCreateAccount()" mat-icon-button>
+          <mat-icon class="cancel-button">arrow_back_ios</mat-icon>
+        </button>
+        Create New Account
+      </mat-card-title>
+    </mat-card-header>
+
+
+    <mat-card-content>
+      <mat-error *ngIf="showError" class="error-message" color="warn">
+        {{errorMessage}}
+      </mat-error>
+
+      <mat-card *ngIf="accountCreated" class="email-sent-label">
+        <mat-label>Open email to confirm your account.</mat-label>
+        <mat-label class="login-page-link"><a routerLink="/login">Back to login </a></mat-label>
+      </mat-card>
+
+      <form (submit)="onSubmit()" *ngIf="!accountCreated" [formGroup]="createAccountForm">
+
+        <mat-form-field appearance="fill" class="create-account-form-field">
+          <mat-label>Family Name</mat-label>
+          <input matInput formControlName="familyName" placeholder="Enter your family name" required>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="create-account-form-field">
+          <mat-label>Given Name</mat-label>
+          <input matInput formControlName="givenName" placeholder="Enter your given name" required>
+        </mat-form-field>
+
+        <mat-error *ngIf="createAccountForm.get('email')?.hasError('invalidEmail')">You can not create an account with this email.</mat-error>
+
+        <mat-form-field appearance="fill" class="create-account-form-field">
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email" placeholder="Enter your email" required>
+        </mat-form-field>
+
+        <mat-error *ngIf="createAccountForm.get('password')?.hasError('minlength')">Password must have at least 7 characters.</mat-error>
+        <mat-error *ngIf="createAccountForm.get('password')?.hasError('hasNumber')">Password must contain at least one number.</mat-error>
+        <mat-error *ngIf="createAccountForm.get('password')?.hasError('hasSmallCase')">Password must contain at least a small case.</mat-error>
+        <mat-error *ngIf="createAccountForm.get('password')?.hasError('hasCapitalCase')">Password must contain at least a capital case.</mat-error>
+        <mat-error *ngIf="createAccountForm.get('password')?.hasError('hasSpecialCharacters')">Password must contain at least a special character: !, @, %, &, ?.</mat-error>
+        <mat-error *ngIf="createAccountForm.get('password')?.hasError('hasOtherThanAllowed')">Password must only contain these special character: !, @, %, &, ?.</mat-error>
+        <mat-error *ngIf="createAccountForm.get('password')?.hasError('hasWhiteSpaces')">No whitespaces allowed.</mat-error>
+
+        <mat-form-field appearance="fill" class="create-account-form-field" >
+          <mat-label>Password</mat-label>
+          <input matInput type="password" formControlName="password" placeholder="Choose your password" required >
+        </mat-form-field>
+
+        <mat-error *ngIf="createAccountForm.hasError('passwordsNotMatching')">Passwords do not march</mat-error>
+
+        <mat-form-field appearance="fill" class="create-account-form-field">
+          <mat-label>Confirm Password</mat-label>
+          <input matInput type="password" formControlName="confirmPassword" placeholder="Confirm your password" required>
+        </mat-form-field>
+
+        <button class="create-account-button" color="primary" mat-raised-button type="submit">Create account</button>
+      </form>
+
+    </mat-card-content>
+
+  </mat-card>
+</div>

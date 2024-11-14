@@ -1,0 +1,16 @@
+# Default ignored files
+/shelf/
+/.idea/
+# Datasource local storage ignored files
+/../../../../../../:\Users\GRN3CLJ\IdeaProjects\Plot Service (Python)\.idea/dataSources/
+/dataSources.local.xml
+# Editor-based HTTP Client requests
+/httpRequests/
+
+# Environments
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/

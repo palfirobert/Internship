@@ -1,0 +1,131 @@
+.no-plots-card{
+  position: absolute;
+  margin: 20% 10% 32% 42%;
+  background-color: #F5F5F5;
+  box-shadow: none !important;
+}
+
+.loading-card{
+  position: absolute;
+  margin: 18% 10% 30% 43%;
+  background-color: #F5F5F5;
+  box-shadow: none !important;
+}
+
+.gallery-card{
+  position: absolute;
+  width: 97%;
+  height: 95%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-left: auto;
+
+  background-color: #F5F5F5;
+  box-shadow: none !important;
+}
+
+.all-plots-container{
+  position: absolute;
+  width:16%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-left: auto;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.1);
+  box-shadow: none !important;
+}
+
+.all-plots-card {
+  max-width: 95%;
+  position: relative;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  margin: 0.9vh 0.7vh 0.3vh 0.7vh;
+  background-color: #F5F5F5;
+  max-height: 20%;
+  margin-bottom: 10%;
+  justify-content: flex-start;
+
+}
+
+.all-plots-card img {
+  cursor: pointer;
+}
+
+.image-text-battery{
+  width: 100%;
+  position: absolute;
+  margin-top:40.9%; /* aici trb schimbat pt textul de sub plot*/
+  background-color: rgba(0, 0, 0, 0.4);
+  align-self: flex-end;
+  justify-content: center;
+  height: 30%;
+}
+.image-text-battery-eq{
+  width: 100%;
+  position: absolute;
+  margin-top:21.9%; /* aici trb schimbat pt textul de sub plot*/
+  background-color: rgba(0, 0, 0, 0.4);
+  align-self: flex-end;
+  justify-content: center;
+  height: 30%;
+}
+.image-text-battery-eq p{
+  align-self: center;
+  color: #FFFFFF;
+  font-size:1.5vh;
+  margin-top: 5%;
+}
+
+.image-text-battery p{
+  align-self: center;
+  color: #FFFFFF;
+  font-size:1.5vh;
+  margin-top: 5%;
+}
+
+.all-plots-card:hover {
+  transform: translate3D(0,-1.5px,0) scale(1.03);
+  box-shadow: 8px 28px 50px rgba(0,  34, 61,.1), 1px 6px 12px rgba(0, 68, 122,.08);
+  transition: all .4s ease; /* zoom in */
+  border-color: rgba(0,  34, 61, .3);
+  border-width: 2px;
+}
+
+
+.plot-container{
+  position: absolute;
+  margin-left: 17%;
+  margin-right: 2%;
+  width: 83.2%;
+  height: 100%;
+  padding-top: 1%;
+  padding-bottom: 2%;
+  background-color: rgba(0, 0, 0, 0.1);
+  box-shadow: none !important;
+}
+
+.plot-card {
+  position: absolute;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  overflow : auto;
+  min-width: 95%;
+  object-fit: cover;
+  margin-left: 2.5%;
+  margin-right: 2.5%;
+  margin-bottom: 1%;
+  background-color: #F5F5F5;
+  justify-content: center;
+}
+
+.mat-mdc-card-image{
+  overflow: auto;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+
+

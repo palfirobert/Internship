@@ -1,0 +1,38 @@
+div{
+  padding: 0;
+  box-sizing: border-box;
+  height: auto;
+  min-height: 100%;
+  position: relative;
+}
+
+.home-page-card{
+  height: 95%;
+  width: 95%;
+  position: absolute;
+  align-content: flex-start;
+  margin: auto;
+  overflow:auto;
+  display:inline-block;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #F5F5F5;
+  padding: 0.5%;
+}
+
+.slider-card{
+  display: flex;
+  width: 610px;
+  max-width: 90%;
+  padding: 25px;
+}
+
+html{
+  height:100%;
+}
+
+body
+{ height:100%;
+}

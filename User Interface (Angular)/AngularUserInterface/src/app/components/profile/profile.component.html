@@ -1,0 +1,70 @@
+<mat-toolbar class="header" role="toolbar">
+
+  <mat-toolbar-row class="header_text">
+    <span class="app_name">ARD 500</span>
+  </mat-toolbar-row>
+
+
+  <mat-toolbar-row class="header_image_bosch">
+    <img alt="Image" class="bosch-logo-image" src="assets/boschLogo.png">
+  </mat-toolbar-row>
+
+  <mat-toolbar-row class = "header_custom_button">
+    <button mat-icon-button color="primary-darker" class="homepage-button" matTooltip="Homepage" (click)="homepage()">
+      <mat-icon>home</mat-icon>
+    </button>
+  </mat-toolbar-row>
+
+
+</mat-toolbar>
+
+<div class="profile-container">
+  <mat-card class="profile-card">
+
+    <mat-card-header class="profile-text">
+      <mat-card-title>Your Profile</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+
+      <mat-error *ngIf="showError"> {{errorMessage}}</mat-error>
+      <label *ngIf="showMessage"> {{successMessage}}</label>
+      <form (submit)="onSave()">
+        <mat-form-field class="form-field">
+          <mat-label>Email</mat-label>
+          <input [(ngModel)]="email" matInput name="email" [disabled]="true">
+        </mat-form-field>
+
+        <mat-error> Warning! Once assigned a tenant, it can not be removed.</mat-error>
+        <mat-form-field class="form-field">
+          <mat-label>Selected Tenants</mat-label>
+          <mat-chip-grid #chipGrid aria-label="Tenant selection">
+            <mat-chip-row *ngFor="let tenant of tenants" (removed)="remove(tenant)">
+              {{tenant}}
+              <button matChipRemove [attr.aria-label]="'remove ' + tenant">
+                <mat-icon>cancel</mat-icon>
+              </button>
+            </mat-chip-row>
+          </mat-chip-grid>
+
+          <input placeholder="New Tenant..." #tenantInput [formControl]="tenantCtrl"
+                 [matChipInputFor]="chipGrid" [matAutocomplete]="auto"
+                 [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                 (matChipInputTokenEnd)="add($event)"/>
+          <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+            <mat-option *ngFor="let tenant of filteredTenants | async" [value]="tenant">
+              {{tenant}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+
+        <button class="save-button" color="primary" mat-raised-button type="submit">Save</button>
+      </form>
+
+    </mat-card-content>
+
+  </mat-card>
+</div>
+
+<app-footer></app-footer>
+

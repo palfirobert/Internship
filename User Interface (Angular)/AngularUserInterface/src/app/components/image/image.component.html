@@ -1,0 +1,36 @@
+<mat-card class="gallery-card">
+  <mat-card *ngIf="noPlots" class="no-plots-card">
+    <mat-card-content>
+      <p>No plots to show</p>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card *ngIf="isImageLoading" class="loading-card">
+    <mat-card-content>
+      <mat-spinner></mat-spinner>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card *ngIf="!isImageLoading && !noPlots && imageService.currentTab==='SOHC_EQ_PARAMS_AGAINST_TIME'"
+            class="all-plots-container">
+    <mat-card *ngFor="let key of imagesToShow; let i = index" class="all-plots-card">
+      <img mat-card-image [src]="key" (click)="onImageClick(key)" alt="">
+      <mat-card class="image-text-battery-eq"><p>{{batteriesId[i]}}</p></mat-card>
+    </mat-card>
+  </mat-card>
+
+  <mat-card *ngIf="!isImageLoading && !noPlots && imageService.currentTab!='SOHC_EQ_PARAMS_AGAINST_TIME'"
+            class="all-plots-container">
+    <mat-card *ngFor="let key of imagesToShow; let i = index" class="all-plots-card">
+      <img mat-card-image [src]="key" (click)="onImageClick(key)" alt="">
+      <mat-card class="image-text-battery"><p>{{logBatteryId(i)}}</p></mat-card>
+    </mat-card>
+  </mat-card>
+
+
+  <mat-card *ngIf="!isImageLoading && !noPlots" class="plot-container">
+    <mat-card class="plot-card">
+      <img mat-card-image [src]="zoomedPlot" alt="">
+    </mat-card>
+  </mat-card>
+</mat-card>

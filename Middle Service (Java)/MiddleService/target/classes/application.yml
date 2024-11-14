@@ -1,0 +1,48 @@
+azure:
+  blob:
+    container: ${BLOB_CONTAINER}
+  servicebus:
+    connection-string: ${SERVICEBUS_CONNECTION_STRING}
+    queue:
+      battery:
+        endpoint:
+          queue: ${BATTERY_ENDPOINT_QUEUE}
+      ploting:
+        endpoint:
+          queue: ${PLOTING_ENDPOINT_QUEUE}
+      tenant:
+        endpoint:
+          queue:${TENANT_ENDPOINT_QUEUE}
+  storage:
+    connection-string: ${STORAGE_CONNECTION_STRING}
+  mail-service:
+    connection-string: ${MAIL_SERVICE_CONNECTION_STRING}
+    email-sender: ${MAIL_SENDER}
+jwt:
+  secret: ${JWT_SECRET}
+  sessionTime: ${JWT_SESSION_TIME}
+proxy:
+  host: ${PROXY-HOST}
+  password: ${PC_PASSWORD}
+  port: ${PORT_NUMBER}
+  username: ${PC_USERNAME}
+python:
+  url: ${PYTHON_URL}
+spring:
+  datasource:
+    password: ${POSTGRES_PASSWORD}
+    url: ${POSTGRES_URL}
+    username: ${POSTGRES_USERNAME}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: ${HIBERNATE_DIALECT}
+        jdbc:
+          lob:
+            non_contextual_creation: true
+template:
+  emailConfirmation: ${EMAIL_CONFIRMATION}
+  resetPassword: ${RESET_PASSWORD}
+  resetPasswordConfirmation: ${RESET_PASSWORD_CONFIRMATION}

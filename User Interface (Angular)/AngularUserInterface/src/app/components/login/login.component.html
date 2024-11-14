@@ -1,0 +1,41 @@
+<div class="login-container">
+  <mat-card class="login-card">
+
+    <div fxLayout="row" fxLayoutAlign="start start">
+      <img alt="Image" class="bosch-logo-image" src="assets/boschLogo.png">
+    </div>
+
+    <mat-card-header class="login-text">
+      <mat-card-title>Login</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <form (submit)="onSubmit()">
+
+        <mat-error *ngIf="loginFailed" class="error-message" color="warn">
+          {{errorMessage}}
+        </mat-error>
+
+        <mat-form-field appearance="fill" class="login-form-field">
+          <mat-label>Email</mat-label>
+          <input [(ngModel)]="user.email" matInput name="email" placeholder="Enter your email" required>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="login-form-field">
+          <mat-label>Password</mat-label>
+          <input [(ngModel)]="user.password" matInput name="password" placeholder="Enter your password"
+                 required type="password">
+        </mat-form-field>
+
+        <mat-card class="account-password">
+          <mat-label><a class="reset-password-link" routerLink="/resetPassword">Forgot Password </a></mat-label>
+          <mat-label><a class="create-account-link" routerLink="/createAccount">Not yet registered? </a></mat-label>
+        </mat-card>
+
+
+        <button class="login-button" color="primary" mat-raised-button type="submit">Submit</button>
+      </form>
+    </mat-card-content>
+
+  </mat-card>
+</div>

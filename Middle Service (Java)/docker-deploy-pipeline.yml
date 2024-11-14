@@ -1,0 +1,24 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+  - merge
+
+pool:
+  vmImage: ubuntu-latest
+
+
+steps:
+  - script: docker build -t java-0.0.3.jar .
+    displayName: 'Build Docker Java Image'
+
+  - script: docker login -u JavaServiceDockerContainerWorkingStudents2023 -p 5u3v5xv4tjJwI7X/aOVlTqrEbWV1WjMctXkFkqTPRG+ACRC8pxfV javaservicedockercontainerworkingstudents2023.azurecr.io
+    displayName: 'Connect to azure container'
+
+  - script: docker tag java-0.0.3.jar:latest javaservicedockercontainerworkingstudents2023.azurecr.io/java-0.0.3.jar
+    displayName: 'Tag Docker Java Image'
+
+  - script: docker push javaservicedockercontainerworkingstudents2023.azurecr.io/java-0.0.3.jar:latest
+    displayName: 'Push Docker Java Image'

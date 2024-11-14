@@ -1,0 +1,63 @@
+azure:
+  blob:
+    container: ${BLOB_CONTAINER:plottingresultsws2023}
+  servicebus:
+    connection-string: ${SERVICEBUS_CONNECTION_STRING:Endpoint=sb://servicebusworkingstudents2023.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=SFoijYKT7hiB/erk158b0ZlEhkMy/P6TP+ASbLCDQN8=}
+    queue:
+      battery:
+        endpoint:
+          queue: ${BATTERY_ENDPOINT_QUEUE:batteryendpointworkingstudent2023}
+      ploting:
+        endpoint:
+          queue: ${PLOTING_ENDPOINT_QUEUE:plotingendpointworkingstudent2023}
+      tenant:
+        endpoint:
+          queue: ${TENANT_ENDPOINT_QUEUE:tenantendpointworkingstudent2023}
+  storage:
+    connection-string: ${STORAGE_CONNECTION_STRING:DefaultEndpointsProtocol=https;AccountName=plottingresultsws2023;AccountKey=sPuTFb605p2k+TGXYgAiUh5VG7bN3V+bHuaqUCPIa6Q6Mfp+6beO0rlGWyRFvycrDdAugHQqTonK+ASt3dvU8Q==;EndpointSuffix=core.windows.net}
+    sas-token: ${SAS_TOKEN:?sv=2022-11-02&ss=bfqt&srt=sco&sp=rwdlacupyx&se=2023-12-31T22:38:06Z&st=2023-09-15T13:38:06Z&spr=https,http&sig=pOrvckGC4VPfhesxIvlwxgZIKAK%2BiLxPkw7T5Xmfoow%3D}
+  mail-service:
+    connection-string: ${MAIL_SERVICE_CONNECTION_STRING:endpoint=https://communication-service-ws2023.europe.communication.azure.com/;accesskey=0orH6pP+CNz5zVT/IES9jZwmOKEJN7MLzgKOGAwLm/c/O1H4SvbJZaAOCaYwo3DeENkIS3V6dXXAjzXdp1Elyg==}
+    email-sender: ${MAIL_SENDER:DoNotReply@d1ab80f4-5241-4b4d-9a33-6879fe31888b.azurecomm.net}
+
+jwt:
+  secret: ${JWT_SECRET:bosch69zeuspitbullpower}
+  sessionTime: ${JWT_SESSION_TIME:36000}
+
+proxy:
+  enabled: ${PROXY_ENABLED:TRUE}
+  host: ${PROXY_HOST:rb-proxy-unix-de01.bosch.com}
+  password: ${PC_PASSWORD:password}
+  port: ${PORT_NUMBER:8080}
+  username: ${PC_USERNAME:username}
+
+python:
+  url: ${PYTHON_URL:http://127.0.0.1:8000}
+  account:
+    username: ${PYTHON_USERNAME:costel007}
+    password: ${PYTHON_PASSWORD:superadmin69}
+
+spring:
+  datasource:
+    password: ${POSTGRES_PASSWORD:dbpassword}
+    url: ${POSTGRES_URL:jdbc:postgresql://localhost:5432/batterydatabase}
+    username: ${POSTGRES_USERNAME:username}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: ${HIBERNATE_DIALECT:org.hibernate.dialect.PostgreSQLDialect}
+        jdbc:
+          lob:
+            non_contextual_creation: true
+
+template:
+  emailConfirmation: ${EMAIL_CONFIRMATION:accountConfirmation}
+  resetPassword: ${RESET_PASSWORD:resetPassword}
+  resetPasswordConfirmation: ${RESET_PASSWORD_CONFIRMATION:passwordResetConfirmation}
+
+url:
+  base: ${URL_BASE:http://localhost:4200}
+  confirmEmail: ${PATH_CONFIRM_EMAIL:/verify}
+  resetPassword: ${PATH_RESET_PASSWORD:/reset}

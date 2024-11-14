@@ -1,0 +1,18 @@
+div{
+  padding: 0;
+  box-sizing: border-box;
+  height: 100%;
+  position: relative;
+}
+
+html{
+  height:100%;
+}
+body
+{ height:100%;
+}
+
+.router-home-page{
+  height: auto;
+  position: relative;
+}

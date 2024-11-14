@@ -1,0 +1,18 @@
+.bosch-colors-image {
+  height: 10px;
+  width: 100%;
+  position: absolute;
+}
+
+.image-container {
+  width: 100%; /* Make the image container full width */
+  display: flex;
+  justify-content: flex-start;
+  position: absolute;
+}
+
+.header-card {
+  display: flex;
+  width: 100%; /* Header card takes the full width of the login container */
+  max-width: 100%;
+}

@@ -1,0 +1,25 @@
+div{
+  padding: 0;
+  box-sizing: border-box;
+  height: 100%;
+  position: relative;
+}
+
+.home-page-card{
+  height: 95%;
+  width: 95%;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #F5F5F5;
+}
+
+html{
+  height:100%;
+}
+body
+{ height:100%;
+}

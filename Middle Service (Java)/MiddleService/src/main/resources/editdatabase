@@ -1,0 +1,28 @@
+ALTER TABLE battery_users
+	ADD role VARCHAR;
+
+INSERT INTO users_tenants VALUES (1, '1aa9d5e8-a182-414b-be97-1791fd89fc27');
+
+ALTER TABLE users_tenants RENAME COLUMN user_id TO battery_user_id;
+
+
+// NEW !!!
+
+ALTER TABLE battery_users RENAME COLUMN username TO email;
+
+ALTER TABLE battery_users
+	ADD family_name VARCHAR;
+
+ALTER TABLE battery_users
+	ADD given_name VARCHAR;
+
+CREATE UNIQUE INDEX battery_users_email_uindex
+	ON battery_users (email);
+
+ALTER TABLE battery_users
+	ADD verified BOOLEAN DEFAULT false NOT NULL;
+
+UPDATE battery_users
+SET email = 'costel3@bosch.com', family_name = 'Pop', given_name = 'Costel', verified = true
+WHERE battery_user_id = 1;
+
